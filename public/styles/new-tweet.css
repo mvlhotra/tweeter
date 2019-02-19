@@ -29,6 +29,10 @@
   margin-top:5px;
 }
 
+.negative{
+  color:#8b0000;
+}
+
 form textarea{
   padding: 5px;
 }
