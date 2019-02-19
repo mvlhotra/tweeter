@@ -33,37 +33,3 @@ body {
   padding: 2rem;
  }
 
- .container .new-tweet {
-  background-color:#eeeeee;
-  border: 1px solid #cccccc;
-  border-radius:5px;
-  padding: 10px;
-  box-shadow: 2px 5px;
- }
-
- .container .new-tweet > h2{
-   line-height:0;
-   font-weight: 700;
- }
-
-.container .new-tweet hr{
-  margin-top:-5px;
-  color:black;
-  background-color:black;
-  border: 0 none;
-  height: 1px;
-
-}
-
-.container .new-tweet form textarea{
-  width: 100%;
-}
-
-.counter{
-  float:right;
-  margin-top:5px;
-}
-
-form textarea{
-  padding: 5px;
-}
