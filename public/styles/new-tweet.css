@@ -4,6 +4,7 @@
   border-radius:5px;
   padding: 10px;
   box-shadow: 2px 5px;
+  display:none;
  }
 
  .container .new-tweet > h2{
