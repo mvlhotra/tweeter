@@ -64,12 +64,15 @@ $(document).ready(function () {
   function validateTweet(text) {
     let tweetText = text.trim();
     if (tweetText === null || tweetText === '') {
-      alert("Cannot post blank tweet.");
+      $('.error').slideDown("medium");
+      $('.error p').html(`<i class="fas fa-exclamation-triangle"></i> Error: Cannot post blank tweet.`);
       return false;
     } else if (tweetText.length > 140) {
-      alert("Tweet is too long.");
+      $('.error').slideDown("medium");
+      $('.error p').html(`<i class="fas fa-exclamation-triangle"></i> Error: Tweet is too long.`);
       return false;
     }
+    $('.error').slideUp("medium");
     return true;
   }
 

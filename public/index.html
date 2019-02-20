@@ -36,6 +36,8 @@
   <!-- Counter JS -->
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
+  <!-- Moment JS-->
+  <script type="text/javascript" src="/vendor/moment.js"></script>
 </head>
 
 <body>
@@ -54,6 +56,9 @@
       <hr />
       <form>
         <textarea name="text" placeholder="What are you humming about?"></textarea>
+        <div class="error">
+          <p><i class="fas fa-exclamation-triangle"></i></p>
+        </div>
         <input type="submit" value="Tweet">
         <span class="counter">140</span>
       </form>
