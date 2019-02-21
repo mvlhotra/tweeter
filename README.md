@@ -6,7 +6,12 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
+# See All Tweets!
+
 !["Tweet Feed Animation"](https://github.com/mvlhotra/tweeter/blob/master/public/images/feed_scroll.gif)
+
+# Post a Tweet!
+
 !["Compose Tweet Animation"](https://github.com/mvlhotra/tweeter/blob/master/public/images/compose_tweet.gif)
 
 ## Current Features
