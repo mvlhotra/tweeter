@@ -117,9 +117,6 @@ $(document).ready(function () {
     $('.container .new-tweet').slideToggle("medium");
     $('textarea').focus();
   });
-  $('').click(function () {
-    console.log('yo');
-  });
 });
 
 

@@ -1,24 +1,23 @@
 .container .new-tweet {
   background-color:#eeeeee;
   border: 1px solid #cccccc;
-  border-radius:5px;
-  padding: 10px;
+  border-radius: 5px;
   box-shadow: 2px 5px;
-  display:none;
- }
+  display: none;
+  padding: 10px;
+}
 
- .container .new-tweet > h2{
-   line-height:0;
-   font-weight: 700;
- }
+.container .new-tweet > h2 {
+  font-weight: 700;
+  line-height: 0;
+}
 
 .container .new-tweet hr{
-  margin-top:-5px;
-  color:black;
   background-color:black;
   border: 0 none;
+  color: black;
   height: 1px;
-
+  margin-top: -5px;
 }
 
 .container .new-tweet form textarea{
@@ -26,8 +25,8 @@
 }
 
 .counter{
-  float:right;
-  margin-top:5px;
+  float: right;
+  margin-top: 5px;
 }
 
 .negative{
@@ -43,7 +42,7 @@ form textarea{
   color: #960017;
   display: none;
   margin-bottom: 5px;
-  padding:5px 0 5px;
+  padding: 5px 0 5px;
 }
 
 .error p{
@@ -53,7 +52,7 @@ form textarea{
 
 #submit-button{
   background-color: #fff;
-  border-radius: 5px;
   border: 1px solid #000;
+  border-radius: 5px;
   color: #00a087;
 }

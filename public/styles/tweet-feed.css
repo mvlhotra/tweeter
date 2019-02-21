@@ -4,6 +4,7 @@
   border-radius: 5px;
   border: 1px solid grey;
   margin-top: 20px;
+  word-wrap: break-word;
 }
 
 .tweet header{
@@ -11,8 +12,8 @@
 }
 
 .tweet:hover header{
-  opacity: 1.0;
   border-color: black;
+  opacity: 1.0;
 }
 
 .tweet .icons {
@@ -20,22 +21,21 @@
 }
 
 .tweet:hover .icons{
-  display:block;
+  display: block;
 }
 
 .tweet header{
+  align-items: center;
   background-color: #eee;
   display: flex;
-  align-items: center;
   padding:1rem;
-  
 }
 
 .tweet img{
-  width: 45px;
-  height: 45px;
   border-radius: 5px;
+  height: 45px;
   margin-right: 1rem;
+  width: 45px;
 }
 
 .tweet h2{
@@ -49,17 +49,17 @@
 
 .tweet .tweet-content{
   margin: 2rem 1rem;
-
 }
+
 .tweet footer{
-  display: flex;
   align-items: center;
+  border-top: 1px solid #eee;
+  display: flex;
   justify-content: space-between;
   padding: 0 1rem;
-  border-top: 1px solid #eee;
 }
 
 footer .icons i{
-  padding: 0 5px;
   color: #61c7b8;
+  padding: 0 5px;
 }
