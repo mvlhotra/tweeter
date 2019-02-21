@@ -1,30 +1,30 @@
-$(document).ready(function () {
-
+$(document).ready(function() {
   //  escape helper string to prevent tweet code injections
   function escape(str) {
-    var div = document.createElement('div');
+    const div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
 
   //  time calculation for each tweet.
-  const dateDiff = function calculateDateDifference(date1, date2) {
+  function dateDiff(date1, date2) {
     let diff = Math.floor((date1 - date2) / 1000);
-    let unit = "";
+    let unit = '';
     if (diff <= 0) {
       return 'posted now';
-    } else if (diff < 60) {
+    }
+    if (diff < 60) {
       unit = 'seconds';
-    } else if (diff < (60 * 60)) {
+    } else if (diff < 60 * 60) {
       unit = 'minutes';
       diff = Math.floor(diff / 60);
-    } else if (diff < (60 * 60 * 24)) {
+    } else if (diff < 60 * 60 * 24) {
       unit = 'hours';
       diff = Math.floor(diff / (60 * 60));
-    } else if (diff < (60 * 60 * 24 * 30)) {
+    } else if (diff < 60 * 60 * 24 * 30) {
       unit = 'days';
       diff = Math.floor(diff / (60 * 60 * 24));
-    } else if (diff < (60 * 60 * 24 * 30 * 12)) {
+    } else if (diff < 60 * 60 * 24 * 30 * 12) {
       unit = 'months';
       diff = Math.floor(diff / (60 * 60 * 24 * 30));
     } else {
@@ -37,9 +37,9 @@ $(document).ready(function () {
     }
     return `Posted ${diff} ${unit} ago`;
   }
-  const crTweet = function createTweetElement(tweet) {
 
-    let $tweet = `      
+  function createTweet(tweet) {
+    const $tweet = `      
     <article class="tweet">
       <header>
         <img src="${tweet.user.avatars.small}">
@@ -58,38 +58,36 @@ $(document).ready(function () {
         </div>
       </footer>
     </article>
-  `
+  `;
     return $tweet;
-
-  };
+  }
 
   function renderTweets(tweets) {
     $('.feed').empty();
     tweets.forEach(tweet => {
-      let content = crTweet(tweet);
+      const content = createTweet(tweet);
       $('.feed').prepend(content);
     });
-    return;
   }
   function loadTweets() {
-    $.ajax('/tweets', { method: 'GET' })
-      .then(function (content) {
-        renderTweets(content);
-      });
-    return;
-  };
-
+    $.ajax('/tweets', { method: 'GET' }).then(function(content) {
+      renderTweets(content);
+    });
+  }
+  //
   function validateTweet(text) {
     let tweetValid = true;
-    let tweetText = text.trim();
+    const tweetText = text.trim();
     $('.error').html('<p></p>');
-    $('.error').slideUp("fast");
+    $('.error').slideUp('fast');
     if (tweetText === null || tweetText === '') {
-      $('.error').slideDown("fast");
-      $('.error p').html(`<i class="fas fa-exclamation-triangle"></i> Error: Cannot post blank tweet.`);
+      $('.error').slideDown('fast');
+      $('.error p').html(
+        `<i class="fas fa-exclamation-triangle"></i> Error: Cannot post blank tweet.`
+      );
       tweetValid = false;
     } else if (tweetText.length > 140) {
-      $('.error').slideDown("fast");
+      $('.error').slideDown('fast');
       $('.error p').html(`<i class="fas fa-exclamation-triangle"></i> Error: Tweet is too long.`);
       tweetValid = false;
     }
@@ -97,27 +95,25 @@ $(document).ready(function () {
     return tweetValid;
   }
 
+  //  once a tweet is submitted, we want to reset the compose tweet elements back to their original values.
 
-  $('.new-tweet form').submit(function () {
+  $('.new-tweet form').submit(function() {
     event.preventDefault();
-    let valid = validateTweet($('textarea').val());
+    const valid = validateTweet($('textarea').val());
     if (valid) {
-      let content = $('textarea').serialize();
-      $.ajax('/tweets', { method: 'POST', data: content })
-        .then(function () {
-          loadTweets();
-          $('textarea').val("");
-          $('.counter').html(140);
-        });
+      const content = $('textarea').serialize();
+      $.ajax('/tweets', { method: 'POST', data: content }).then(function() {
+        loadTweets();
+        $('textarea').val('');
+        $('.counter').html(140);
+      });
     }
   });
   loadTweets();
 
-  $('.compose').click(function () {
-    $('.container .new-tweet').slideToggle("medium");
+  //  compose slide toggling
+  $('.compose').click(function() {
+    $('.container .new-tweet').slideToggle('medium');
     $('textarea').focus();
   });
 });
-
-
-

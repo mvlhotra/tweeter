@@ -1,14 +1,13 @@
-$(document).ready(function () {
+$(document).ready(function() {
   const text = document.querySelector('.new-tweet textarea');
-  text.addEventListener('input', function () {
+  text.addEventListener('input', function() {
     const len = this.value.length;
-    let count = ($(this).siblings(".counter"));
+    const count = $(this).siblings('.counter');
     count[0].innerText = 140 - len;
     if (count[0].innerText < 0) {
-      $(count).addClass("negative");
+      $(count).addClass('negative');
     } else {
-      $(count).removeClass("negative");
+      $(count).removeClass('negative');
     }
   });
 });
-

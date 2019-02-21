@@ -1,6 +1,5 @@
-$(document).ready(function () {
-  $(document).submit(function () {
+$(document).ready(function() {
+  $(document).submit(function() {
     event.preventDefault();
   });
 });
-
