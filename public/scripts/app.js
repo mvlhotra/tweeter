@@ -15,9 +15,22 @@ $(document).ready(function () {
   }
 
   const dateDiff = function calculateDateDifference(date1, date2) {
-    dt1 = new Date(date1);
-    dt2 = new Date(date2);
-    return -1 * Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) / (1000 * 60 * 60 * 24));
+    let diff = Math.floor((date1 - date2 - 110000) / 1000);
+    if (diff <= 0) {
+      return `posted now`;
+    } else if (diff < 60) {
+      return `${diff} second(s) ago`;
+    } else if (diff < (60 * 60)) {
+      return `${Math.floor(diff / 60)} minute(s) ago`;
+    } else if (diff < (60 * 60 * 24)) {
+      return `${Math.floor(diff / (60 * 60))} hour(s) ago`;
+    } else if (diff < (60 * 60 * 24 * 30)) {
+      return `${Math.floor(diff / (60 * 60 * 24))} day(s) ago`;
+    } else if (diff < (60 * 60 * 24 * 30 * 12)) {
+      return `${Math.floor(diff / (60 * 60 * 24 * 30))} month(s) ago`;
+    } else {
+      return `${Math.floor(diff / (60 * 60 * 24 * 30 * 12))} year(s) ago`;
+    }
 
   }
   const crTweet = function createTweetElement(tweet) {
@@ -33,7 +46,7 @@ $(document).ready(function () {
         <p class="tweet-content">${escape(tweet.content.text)}</p>
       </div>
       <footer>
-        <p class="posted">${dateDiff(Date.now(), tweet.created_at)} days ago</p>
+        <p class="posted">${dateDiff(Date.now(), tweet.created_at)}</p>
         <div class="icons">
           <i class="fas fa-flag"></i>
           <i class="fas fa-retweet"></i>
@@ -47,6 +60,7 @@ $(document).ready(function () {
   };
 
   function renderTweets(tweets) {
+    $('.feed').empty();
     tweets.forEach(tweet => {
       let content = crTweet(tweet);
       $('.feed').prepend(content);
