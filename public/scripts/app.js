@@ -78,15 +78,18 @@ $(document).ready(function () {
   function validateTweet(text) {
     let tweetValid = true;
     let tweetText = text.trim();
+    $('.error').html('<p></p>');
     $('.error').slideUp("fast");
     if (tweetText === null || tweetText === '') {
+      $('.error').slideDown("fast");
       $('.error p').html(`<i class="fas fa-exclamation-triangle"></i> Error: Cannot post blank tweet.`);
       tweetValid = false;
     } else if (tweetText.length > 140) {
+      $('.error').slideDown("fast");
       $('.error p').html(`<i class="fas fa-exclamation-triangle"></i> Error: Tweet is too long.`);
       tweetValid = false;
     }
-    $('.error').slideDown("fast");
+
     return tweetValid;
   }
 

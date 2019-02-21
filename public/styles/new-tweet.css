@@ -47,7 +47,13 @@ form textarea{
 }
 
 .error p{
-  margin:0;
+  margin: 0;
+  padding: 0 5px 0 5px;
 }
 
-form button{}
+#submit-button{
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #000;
+  color: #00a087;
+}
