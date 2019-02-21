@@ -32,13 +32,13 @@
 }
 
 .tweet img{
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 5px;
   margin-right: 1rem;
 }
 
-.tweet h1{
+.tweet h2{
   flex-basis: 90%;
   margin: 0;
 }

@@ -1,37 +1,41 @@
-
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
-
 $(document).ready(function () {
 
+  //  escape helper string to prevent tweet code injections
   function escape(str) {
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
 
+  //  time calculation for each tweet.
   const dateDiff = function calculateDateDifference(date1, date2) {
-    let diff = Math.floor((date1 - date2 - 110000) / 1000);
+    let diff = Math.floor((date1 - date2) / 1000);
+    let unit = "";
     if (diff <= 0) {
-      return `posted now`;
+      return 'posted now';
     } else if (diff < 60) {
-      return `${diff} second(s) ago`;
+      unit = 'seconds';
     } else if (diff < (60 * 60)) {
-      return `${Math.floor(diff / 60)} minute(s) ago`;
+      unit = 'minutes';
+      diff = Math.floor(diff / 60);
     } else if (diff < (60 * 60 * 24)) {
-      return `${Math.floor(diff / (60 * 60))} hour(s) ago`;
+      unit = 'hours';
+      diff = Math.floor(diff / (60 * 60));
     } else if (diff < (60 * 60 * 24 * 30)) {
-      return `${Math.floor(diff / (60 * 60 * 24))} day(s) ago`;
+      unit = 'days';
+      diff = Math.floor(diff / (60 * 60 * 24));
     } else if (diff < (60 * 60 * 24 * 30 * 12)) {
-      return `${Math.floor(diff / (60 * 60 * 24 * 30))} month(s) ago`;
+      unit = 'months';
+      diff = Math.floor(diff / (60 * 60 * 24 * 30));
     } else {
-      return `${Math.floor(diff / (60 * 60 * 24 * 30 * 12))} year(s) ago`;
+      unit = 'years';
+      diff = Math.floor(diff / (60 * 60 * 24 * 30 * 12));
     }
-
+    //  strip the 's' off if tweet was posted 1 second/minute/hour/day/month/year ago.
+    if (diff === 1) {
+      unit = unit.substr(0, unit.length - 1);
+    }
+    return `Posted ${diff} ${unit} ago`;
   }
   const crTweet = function createTweetElement(tweet) {
 
@@ -39,7 +43,7 @@ $(document).ready(function () {
     <article class="tweet">
       <header>
         <img src="${tweet.user.avatars.small}">
-        <h1>${escape(tweet.user.name)}</h1>
+        <h2>${escape(tweet.user.name)}</h2>
         <p class="handle">${escape(tweet.user.handle)}</p>
       </header>
       <div class="content">
@@ -50,7 +54,7 @@ $(document).ready(function () {
         <div class="icons">
           <i class="fas fa-flag"></i>
           <i class="fas fa-retweet"></i>
-          <i class="fas fa-heart"></i>
+          <a href="#"><i class="fas fa-heart"></i></a>
         </div>
       </footer>
     </article>
@@ -112,6 +116,9 @@ $(document).ready(function () {
   $('.compose').click(function () {
     $('.container .new-tweet').slideToggle("medium");
     $('textarea').focus();
+  });
+  $('').click(function () {
+    console.log('yo');
   });
 });
 
