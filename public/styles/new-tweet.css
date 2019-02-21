@@ -42,9 +42,12 @@ form textarea{
   background-color: #ffd9df;
   color: #960017;
   display: none;
+  margin-bottom: 5px;
+  padding:5px 0 5px;
 }
 
 .error p{
-  margin-top: -5px;
-  padding: 5px;
+  margin:0;
 }
+
+form button{}

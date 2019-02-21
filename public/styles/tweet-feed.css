@@ -19,8 +19,6 @@
   display: none;
 }
 
-
-
 .tweet:hover .icons{
   display:block;
 }
@@ -41,7 +39,7 @@
 }
 
 .tweet h1{
-  flex-basis: 100%;
+  flex-basis: 90%;
   margin: 0;
 }
 
