@@ -1,5 +1,5 @@
 // Basic express setup:
-const env = require('dotenv').config();
+require('dotenv').config();
 
 const PORT = 8080;
 const express = require('express');
