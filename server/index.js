@@ -5,9 +5,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
-const { MongoClient } = require('mongodb');
+const MongoClient = require('mongodb').MongoClient;
 
-const { MONGODB_URI } = 'mongodb://127.0.0.1:27017/tweets';
+const MONGODB_URI = 'mongodb://localhost:27017/tweeter';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
