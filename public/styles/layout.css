@@ -4,20 +4,16 @@
  * Do not modify these two selectors, please
  */
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
-
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 /*
  * Global layout stuff
  */
+
 body {
   background-color: #eee;
   color: #244751;
@@ -25,17 +21,17 @@ body {
   margin: 0;
 }
 
-body .container {
-  background-color: #fff;
-  margin: 5% auto;
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+
+ main {
+  background-color:#fff;
+  margin: auto;
+  margin-top: 10%;
   min-width: 300px;
   padding: 2rem;
-  width: 45%;
-}
+  width: 50%;
+  
+ }
 
-@media (max-width: 840px) {
-  body .container {
-    margin-top: 10%;
-  }
-}
-/*# sourceMappingURL=layout.css.map */

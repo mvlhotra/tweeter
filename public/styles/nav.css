@@ -1,8 +1,6 @@
 #nav-bar {
   background-color: #00a087;
   color: #e8fdff;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   height: 80px;
   left: 0;
@@ -21,22 +19,12 @@
 
 #nav-bar .header {
   font-size: 2em;
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
+  flex-basis: 100%;
   line-height: 250%;
 }
 
-@media (max-width: 840px) {
-  #nav-bar .header {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-}
-
 #nav-bar .compose {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   background-color: #fff;
   border: 2px solid #000;
   color: #00a087;
@@ -44,18 +32,10 @@
   font-size: 1.25em;
   height: 60px;
   opacity: 0.8;
-  width: 175px;
-}
-
-@media (max-width: 840px) {
-  #nav-bar .compose {
-    height: 40px;
-    font-size: 0.75rem;
-  }
+  width: 150px;
 }
 
 #nav-bar .compose:hover {
   color: #000;
   opacity: 1;
 }
-/*# sourceMappingURL=nav.css.map */

@@ -1,61 +1,43 @@
 .container .new-tweet {
-  background-color: #eee;
-  border: 1px solid color(tBorder);
+  background-color:#eeeeee;
+  border: 1px solid #cccccc;
   border-radius: 5px;
-  -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 5px;
   display: none;
   padding: 10px;
 }
 
-@media (max-width: 840px) {
-  .container .new-tweet {
-    margin-top: 10%;
-  }
-}
-
-.container .new-tweet h2 {
+.container .new-tweet > h2 {
   font-weight: 700;
   line-height: 0;
-  margin: 2.5% 0;
-  padding-bottom: 15px;
-  border-bottom: 1px solid color(tBorder);
 }
 
-@media (max-width: 840px) {
-  .container .new-tweet h2 {
-    font-size: 1rem;
-  }
+.container .new-tweet hr{
+  background-color:black;
+  border: 0 none;
+  color: black;
+  height: 1px;
+  margin-top: -5px;
 }
 
-.container .new-tweet form textarea {
-  border-radius: 5px;
+.container .new-tweet form textarea{
   width: 100%;
-  padding: 5px;
 }
 
-@media (max-width: 840px) {
-  .container .new-tweet form textarea {
-    font-size: 0.75rem;
-  }
-}
-
-.container .new-tweet .counter {
+.counter{
   float: right;
   margin-top: 5px;
 }
 
-@media (max-width: 840px) {
-  .container .new-tweet .counter {
-    font-size: 0.75rem;
-  }
+.negative{
+  color:#8b0000;
 }
 
-.container .new-tweet .negative {
-  color: #960017;
+form textarea{
+  padding: 5px;
 }
 
-.container .new-tweet .error {
+.error{
   background-color: #ffd9df;
   color: #960017;
   display: none;
@@ -63,14 +45,14 @@
   padding: 5px 0 5px;
 }
 
-.container .new-tweet .error p {
+.error p{
   margin: 0;
   padding: 0 5px 0 5px;
 }
 
-.container .new-tweet #submit-button {
+#submit-button{
   background-color: #fff;
-  border: 1px solid color(tBorder);
+  border: 1px solid #000;
   border-radius: 5px;
+  color: #00a087;
 }
-/*# sourceMappingURL=new-tweet.css.map */

@@ -1,111 +1,65 @@
-.tweet {
+
+
+.tweet{
   border-radius: 5px;
   border: 1px solid grey;
   margin-top: 20px;
   word-wrap: break-word;
 }
 
-@media (max-width: 840px) {
-  .tweet {
-    margin-top: 10px;
-  }
-}
-
-.tweet header {
+.tweet header{
   opacity: 0.8;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: #eee;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 1rem;
 }
 
-.tweet header img {
+.tweet:hover header{
+  border-color: black;
+  opacity: 1.0;
+}
+
+.tweet .icons {
+  display: none;
+}
+
+.tweet:hover .icons{
+  display: block;
+}
+
+.tweet header{
+  align-items: center;
+  background-color: #eee;
+  display: flex;
+  padding:1rem;
+}
+
+.tweet img{
   border-radius: 5px;
   height: 45px;
   margin-right: 1rem;
   width: 45px;
 }
 
-@media (max-width: 840px) {
-  .tweet header img {
-    font-size: 0.75rem;
-    height: 30px;
-    width: 30px;
-    margin-right: 0.25rem;
-  }
-}
-
-.tweet header h2 {
-  -ms-flex-preferred-size: 90%;
-      flex-basis: 90%;
+.tweet h2{
+  flex-basis: 90%;
   margin: 0;
 }
 
-@media (max-width: 840px) {
-  .tweet header h2 {
-    font-size: 1rem;
-  }
-}
-
-.tweet header .handle {
+.tweet .handle{
   margin: 0;
 }
 
-@media (max-width: 840px) {
-  .tweet header .handle {
-    font-size: 0.5rem;
-  }
-}
-
-.tweet .tweet-content {
+.tweet .tweet-content{
   margin: 2rem 1rem;
 }
 
-@media (max-width: 840px) {
-  .tweet .tweet-content {
-    font-size: 0.75rem;
-  }
-}
-
-.tweet footer {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.tweet footer{
+  align-items: center;
   border-top: 1px solid #eee;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   padding: 0 1rem;
 }
 
-@media (max-width: 840px) {
-  .tweet footer {
-    font-size: 0.75rem;
-  }
-}
-
-.tweet footer .icons {
-  display: none;
-}
-
-.tweet footer .icons i {
+footer .icons i{
   color: #61c7b8;
   padding: 0 5px;
 }
-
-.tweet:hover header {
-  border-color: #000;
-  opacity: 1;
-}
-
-.tweet:hover .icons {
-  display: block;
-}
-/*# sourceMappingURL=tweet-feed.css.map */
