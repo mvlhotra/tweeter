@@ -1,0 +1,53 @@
+$colors: (
+  feed-bg: #eee,
+  main-bg: #fff,
+  name: #244751
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+$mobile-width: 840px;
+@mixin mobile {
+  @media (max-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+
+body {
+  background-color: color(feed-bg);
+  color: color(name);
+  font-family: 'Roboto Condensed', sans-serif;
+  margin: 0;
+
+  .container {
+    background-color: color(main-bg);
+    margin: 5% auto;
+    min-width: 300px;
+    padding: 2rem;
+    width: 45%;
+    @include mobile {
+      margin-top: 10%;
+    }
+  }
+}
