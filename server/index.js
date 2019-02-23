@@ -1,4 +1,4 @@
-require('dotenv').config();
+const env = require('dotenv').config();
 
 // Basic express setup:
 
