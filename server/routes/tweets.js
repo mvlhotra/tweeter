@@ -7,6 +7,7 @@ const tweetsRoutes = express.Router();
 
 module.exports = function (DataHelpers) {
 
+
   tweetsRoutes.get("/", function (req, res) {
     DataHelpers.getTweets((err, tweets) => {
       if (err) {
@@ -37,6 +38,16 @@ module.exports = function (DataHelpers) {
         res.status(500).json({ error: err.message });
       } else {
         res.status(201).send();
+      }
+    });
+  });
+
+  tweetsRoutes.get("/register", function (req, res) {
+    DataHelpers.getTweets((err, tweets) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+      } else {
+        res.json(tweets);
       }
     });
   });
