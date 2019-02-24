@@ -23,7 +23,22 @@ MongoClient.connect(MONGODB_URI, (err, mongo) => {
   const DataHelpers = require('./lib/data-helpers.js')(mongo);
   const tweetsRoutes = require('./routes/tweets')(DataHelpers);
   app.use('/tweets', tweetsRoutes);
+  app.set('view engine', 'ejs');
 });
+
+
+app.get('/register', (req, res) => {
+  res.render('urls_register');
+});
+
+app.get('/login', (req, res) => {
+  res.render('urls_login');
+});
+
+app.post('/logout', (req, res) => {
+  console.log("u logged tf out");
+});
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

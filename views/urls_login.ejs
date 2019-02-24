@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/_header %>
+</head>
+
+<body>
+  <!-- Top nav bar (fixed) -->
+  <nav id="nav-bar">
+    <img class="logo" src="/images/bird.png" width="80px" height="80px" />
+    <span class="header">Tweeter</span>
+    <button class="compose"><i class="fas fa-edit"></i> Compose</button>
+  </nav>
+
+  <!-- Page-specific (main) content here -->
+  <main class="container">
+    <section class="login">
+      <div class="log-form">
+        <h2>Login to Tweeter</h2>
+        <form>
+          <input type="text" title="username" placeholder="username" />
+          <input type="password" title="username" placeholder="password" />
+          <button type="submit" class="btn">Login</button>
+          <a class="forgot" href="#">Forgot Username?</a>
+        </form>
+      </div>
+
+    </section>
+  </main>
+</body>
+
+</html>
