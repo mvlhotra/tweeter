@@ -58,4 +58,27 @@
   color: #000;
   opacity: 1;
 }
+
+#nav-bar .login {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 5px;
+  height: 60px;
+  opacity: 0.8;
+  width: 175px;
+}
+
+#nav-bar .login a {
+  color: #00a087;
+  font-size: 1.25em;
+  text-decoration: none;
+}
+
+#nav-bar .login:hover {
+  color: #000;
+  opacity: 1;
+}
 /*# sourceMappingURL=nav.css.map */

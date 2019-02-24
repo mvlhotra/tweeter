@@ -24,6 +24,25 @@ module.exports = function makeDataHelpers(db) {
           }
           callback(null, tweets.sort(sortNewestFirst));
         });
+    },
+    getUser(username, callback) {
+      db.collection('users')
+        .find({ user: username })
+        .toArray((err, users) => {
+          if (err) {
+            return callback(err);
+          }
+          callback(null, users);
+        });
+    },
+
+    registerUser(newUser, callback) {
+      db.collection('users').insertOne(newUser, err => {
+        if (err) {
+          return callback(err);
+        }
+        callback(null, true);
+      });
     }
   };
 };

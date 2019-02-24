@@ -68,4 +68,25 @@ $logo-size: 80px;
     color: color(hover-font);
     opacity: 1;
   }
+  .login{
+    align-self: center;
+    background-color: color(button-bg);
+    border: 2px solid color(border-color);
+    border-radius: 5px;
+    height: $button-height;
+    opacity: 0.8;
+    width: 175px;
+    a{
+      color: color(accent);
+      font-size: 1.25em;
+      text-decoration:none;
+    }
+  }
+  
+  .login:hover {
+    color: color(hover-font);
+    opacity: 1;
+  }
 }
+
+

@@ -5,6 +5,7 @@ require('dotenv').config();
 //const PORT = 8080;
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieSession = require('cookie-session');
 
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
@@ -23,14 +24,45 @@ MongoClient.connect(MONGODB_URI, (err, mongo) => {
   const DataHelpers = require('./lib/data-helpers.js')(mongo);
   const tweetsRoutes = require('./routes/tweets')(DataHelpers);
   app.use('/tweets', tweetsRoutes);
+  app.use(cookieSession({ name: 'session', keys: ['12345'] }));
 
   app.set('view engine', 'ejs');
+
   app.get('/register', (req, res) => {
     res.render('urls_register');
   });
 
+  app.post('/register', (req, res) => {
+    const user = {
+      user: req.body.user,
+      name: req.body.name,
+      password: req.body.password
+    };
+
+    DataHelpers.registerUser(user, (err) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+      } else {
+        res.status(201).send();
+      }
+
+    });
+    res.redirect('/');
+  });
+
   app.get('/login', (req, res) => {
     res.render('urls_login');
+  });
+
+  app.post('/login', (req, res) => {
+    DataHelpers.getUser('mvlhotra', (err, user) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+      } else {
+        req.session.user = user;
+        res.redirect('/');
+      }
+    });
   });
 
   app.post('/logout', (req, res) => {
@@ -40,8 +72,8 @@ MongoClient.connect(MONGODB_URI, (err, mongo) => {
 
 
 
-
-
 app.listen(process.env.PORT || 8080, () => {
   console.log(`Example app listening...`);
 });
+
+
