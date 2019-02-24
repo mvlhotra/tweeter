@@ -29,56 +29,70 @@ MongoClient.connect(MONGODB_URI, (err, mongo) => {
   app.set('view engine', 'ejs');
 
   app.get('/register', (req, res) => {
-    res.render('urls_register');
+    const templateVars = {
+      user: req.session.user
+    }
+    res.render('urls_register', templateVars);
+
   });
 
   app.post('/register', (req, res) => {
     const user = {
-      user: req.body.user,
-      name: req.body.name,
+      user: req.body.username,
+      name: `${req.body.first} ${req.body.last}`,
       password: req.body.password
     };
-
     DataHelpers.registerUser(user, (err) => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
         res.status(201).send();
       }
-
     });
     res.redirect('/');
   });
 
   app.get('/', (req, res) => {
-    res.render('index.ejs');
+    const templateVars = {
+      user: req.session.user
+    }
+    res.render('index.ejs', templateVars);
   });
 
   app.get('/login', (req, res) => {
+    const templateVars = {
+      user: req.session.user,
+      error: false
+    }
     if (req.session.user !== undefined) {
       res.redirect('/');
     } else {
-      const templateVars = {
-        user: users[req.session.user_id]
-      };
       res.render('urls_login', templateVars);
     }
   });
 
   app.post('/login', (req, res) => {
-    DataHelpers.getUser('mvlhotra', "coff33", (err, user) => {
+    const templateVars = {
+      user: req.session.user,
+      error: true
+    }
+    DataHelpers.getUser(req.body.username, req.body.password, (err, user) => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
-        req.session.user = user;
-
-        res.redirect('/');
+        if (user.length !== 0) {
+          req.session.user = user;
+          res.redirect('/');
+        } else {
+          res.render('urls_login', templateVars)
+        }
       }
     });
   });
 
   app.post('/logout', (req, res) => {
-    console.log("u logged tf out");
+    req.session = null;
+    res.redirect('/');
   });
 });
 

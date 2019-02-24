@@ -26,6 +26,11 @@
   line-height: 250%;
 }
 
+#nav-bar .header a {
+  text-decoration: none;
+  color: #fff;
+}
+
 @media (max-width: 840px) {
   #nav-bar .header {
     margin-left: 5%;

@@ -6,22 +6,18 @@
 </head>
 
 <body>
-  <!-- Top nav bar (fixed) -->
-  <nav id="nav-bar">
-    <img class="logo" src="/images/bird.png" width="80px" height="80px" />
-    <span class="header">Tweeter</span>
-    <button class="compose"><i class="fas fa-edit"></i> Compose</button>
-  </nav>
-
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="login">
       <div class="log-form">
         <h2>Login to Tweeter</h2>
+        <%if(error){%>
+        <p>Invalid login or password.</p>
+        <%}%>
         <form action="/login" method="POST">
-          <input type="text" title="username" placeholder="username" />
-          <input type="password" title="username" placeholder="password" />
-          <button type="submit" class="btn">Login</button>
+          <input type="text" title="username" name='username' placeholder="username" />
+          <input type="password" title="username" name='password' placeholder="password" />
+          <button type="submit">Login</button>
           <a class="forgot" href="#">Forgot Username?</a>
         </form>
       </div>

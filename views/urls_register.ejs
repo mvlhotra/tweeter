@@ -6,25 +6,21 @@
 </head>
 
 <body>
-  <!-- Top nav bar (fixed) -->
-  <nav id="nav-bar">
-    <img class="logo" src="/images/bird.png" width="80px" height="80px" />
-    <span class="header">Tweeter</span>
-    <button class="compose"><i class="fas fa-edit"></i> Compose</button>
-  </nav>
-
-  <body style="font-size:20px; padding:50px;">
-    <div class="container main">
-      <h2>Register - New Account</h2>
-      <form class="form-block" action="/register" method="POST">
-        <div class="form-group mb-2" style="margin-top: 1em">
-          <input class="form-control" type="email" name="email" placeholder="Email"
-            style="width: 300px; margin-bottom: 1em">
-          <input class="form-control" type="password" name="password" placeholder="Password"
-            style="width: 300px; margin-bottom: 1em">
-          <button type="submit" class="btn btn-dark">Sign Up</button>
-        </div>
-    </div>
-  </body>
+  <div class="container main">
+    <h2>Register - New Account</h2>
+    <form class="form-block" action="/register" method="POST">
+      <div class="form-group mb-2" style="margin-top: 1em">
+        <input class="form-control" type="text" name="first" placeholder="First Name"
+          style="width: 300px; margin-bottom: 1em">
+        <input class="form-control" type="text" name="last" placeholder="Last Name"
+          style="width: 300px; margin-bottom: 1em">
+        <input class="form-control" type="text" name="username" placeholder="Username"
+          style="width: 300px; margin-bottom: 1em">
+        <input class="form-control" type="password" name="password" placeholder="Password"
+          style="width: 300px; margin-bottom: 1em">
+        <button type="submit">Sign Up</button>
+      </div>
+  </div>
+</body>
 
 </html>

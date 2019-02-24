@@ -1,6 +1,3 @@
-<!-- Meta Information -->
-<title>Tweeter - Login</title>
-
 <!-- External CSS -->
 <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
 
@@ -13,6 +10,12 @@
 <!-- Nav CSS -->
 <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
+<!-- New-Tweet CSS -->
+<link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+
+<!-- Tweet-feed CSS -->
+<link rel="stylesheet" href="/styles/tweet-feed.css" type="text/css" />
+
 <!--Font Awesome CSS-->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
   integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
@@ -23,9 +26,16 @@
 <!-- App JS -->
 <script type="text/javascript" src="/scripts/app.js"></script>
 
+
 <!-- Top nav bar (fixed) -->
 <nav id="nav-bar">
-  <img class="logo" src="/images/bird.png" width="80px" height="80px" />
-  <span class="header">Tweeter</span>
+  <a href="/"><img class="logo" src="/images/bird.png" width="80px" height="80px" /></a>
+  <span class="header"><a href="/">Tweeter</a></span>
+  <%if(user === undefined){%>
+  <a href="/register"><button class="login">Register</button></a>
+  <a href="/login"><button class="login">Login</button></a>
+  <%} else {%>
+  <form><button type="submit" formmethod="POST" formaction="/logout" class="login">Logout</button></form>
+  <%}%>
   <button class="compose"><i class="fas fa-edit"></i> Compose</button>
 </nav>
