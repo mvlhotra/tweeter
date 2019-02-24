@@ -50,16 +50,28 @@ MongoClient.connect(MONGODB_URI, (err, mongo) => {
     res.redirect('/');
   });
 
+  app.get('/', (req, res) => {
+    res.render('index.ejs');
+  });
+
   app.get('/login', (req, res) => {
-    res.render('urls_login');
+    if (req.session.user !== undefined) {
+      res.redirect('/');
+    } else {
+      const templateVars = {
+        user: users[req.session.user_id]
+      };
+      res.render('urls_login', templateVars);
+    }
   });
 
   app.post('/login', (req, res) => {
-    DataHelpers.getUser('mvlhotra', (err, user) => {
+    DataHelpers.getUser('mvlhotra', "coff33", (err, user) => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
         req.session.user = user;
+
         res.redirect('/');
       }
     });

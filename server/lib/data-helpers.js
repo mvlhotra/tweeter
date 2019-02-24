@@ -25,9 +25,9 @@ module.exports = function makeDataHelpers(db) {
           callback(null, tweets.sort(sortNewestFirst));
         });
     },
-    getUser(username, callback) {
+    getUser(username, password, callback) {
       db.collection('users')
-        .find({ user: username })
+        .find({ user: username, password: password })
         .toArray((err, users) => {
           if (err) {
             return callback(err);
